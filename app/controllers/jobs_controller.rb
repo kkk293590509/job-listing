@@ -3,6 +3,10 @@ class JobsController < ApplicationController
 
        def show
          @job = Job.find(params[:id])
+         if @job.is_hidden
+          flash[:warning] = "此工作被抢光了"
+          redirect_to root_path
+        end
        end
 
        def index
@@ -38,14 +42,23 @@ class JobsController < ApplicationController
 
        def destroy
          @job = Job.find(params[:id])
-
          @job.destroy
-
          redirect_to jobs_path
        end
+       def publish
+         @job = Job.find(params[:id])
+         @job.is_hidden = false
+         @job.save
+         redirect_to :back
+       end
+       def hide
+          @job = Job.find(params[:id])
+          @job.is_hidden = true
+          @job.save
+          redirect_to :back
+        end
 
        private
-
    def job_params
      params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
    end

@@ -8,15 +8,18 @@
     <% @jobs.each do |job| %>
       <tr>
         <td>
-            <%= link_to(job.title, admin_job_path(job)) %>
-
             <%= render_job_status(job) %>
-
-            </td>
+            <%= link_to(job.title, admin_job_path(job)) %>
+          </td>
               <td>
               <%= link_to("Edit", edit_admin_job_path(job), :class => "btn btn-xs btn-primary") %>
-
               <%= link_to("Destroy", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-default", :data => { :confirm => "Are you sure?" }) %>
+              <% if job.is_hidden %>
+                 <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-danger") %>
+              <% else %>
+                 <%= link_to("Hide",  hide_admin_job_path(job), :method => :post, :class => "btn btn-xs btn-danger") %>
+              <% end %>
+
               </td>
           <td>
             <%= job.created_at %>
