@@ -19,7 +19,7 @@
 @import "font-awesome";
 //首页加个头图
 .jumbotron {
-  background-image:url("header.jpg");
+  background-image:url('http://r.photo.store.qq.com/psb?/V11xK5P12Ko0CP/jYuvo5bvvz*tka88ouWYR.qUcZcRhcpS0NqAzmisZyI!/r/dBYAAAAAAAAA');
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 110px;
@@ -51,18 +51,12 @@
      padding: 20px;//上下左右padding为20px
      text-align:left;//文字左对齐
      font-family: "Helvetica Neue", "KaiTi";
-     color: #222;//字体颜色
+     color: #0288D1;//字体颜色
 
      border-bottom-right-radius: 3px;//右下角圆边
      border-bottom-left-radius: 3px;//左下角圆边
  }
-.slogan {
-  margin-top: 10px;
-  margin-bottom: 50px;
-  text-align: center;
-  color: #FAFAFA;
-  top: 12px;
-}
+
 
 .lead {
   margin-bottom: 60px;
